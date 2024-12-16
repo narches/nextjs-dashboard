@@ -1,5 +1,4 @@
-import { deleteInvoice } from '@/app/lib/actions';
-import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 
@@ -26,30 +25,30 @@ export function UpdateInvoice({ id }: { id: string }) {
   );
 }
 
-export function DeleteInvoice({ id }: { id: string }) {
-  const handleDelete = async (formData: FormData) => {
-    try {
-      // Call deleteInvoice with the id
-      const result = await deleteInvoice(id);
-      console.log(result.message); // Handle success message if needed
-    } catch (error) {
-      console.error("Failed to delete invoice:", error);
-    }
-  };
+// export function DeleteInvoice({ id }: { id: string }) {
+//   const handleDelete = async (formData: FormData) => {
+//     try {
+//       // Call deleteInvoice with the id
+//       const result = await deleteInvoice(id);
+//       console.log(result.message); // Handle success message if needed
+//     } catch (error) {
+//       console.error("Failed to delete invoice:", error);
+//     }
+//   };
 
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault(); // Prevent form's default submission
-        const formData = new FormData(e.currentTarget);
-        handleDelete(formData);
-      }}
-    >
-      <button type="submit" className="hover:bg-gray-100 p-2 border rounded-md">
-        <span className="sr-only">Delete</span>
-        <TrashIcon className="w-4" />
-      </button>
-    </form>
-  );
-}
+//   return (
+//     <form
+//       onSubmit={(e) => {
+//         e.preventDefault(); // Prevent form's default submission
+//         const formData = new FormData(e.currentTarget);
+//         handleDelete(formData);
+//       }}
+//     >
+//       <button type="submit" className="hover:bg-gray-100 p-2 border rounded-md">
+//         <span className="sr-only">Delete</span>
+//         <TrashIcon className="w-4" />
+//       </button>
+//     </form>
+//   );
+// }
 
